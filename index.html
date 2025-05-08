@@ -97,9 +97,34 @@
     .gift-box button:hover {
       background-color: #0056b3;
     }
+    .beach-button {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.beach-button:hover {
+  background: linear-gradient(to right, #f9d423, #ff4e50);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
   </style>
+  
 </head>
+  
 <body>
+  <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+  <button onclick="toggleMusic()" class="beach-button" id="musicBtn">Iniciar música 🎵</button>
+</div>
+
   <div class="container">
     <h1>Casamento</h1>
     <div class="casal">Helena
@@ -173,6 +198,20 @@
   <source src="music.mp3" type="audio/mpeg">
   Seu navegador não suporta áudio.
 </audio>
+<script>
+  function toggleMusic() {
+    const music = document.getElementById('bgm');
+    const button = document.getElementById('musicBtn');
+
+    if (music.paused) {
+      music.play();
+      button.textContent = 'Pausar música ⏸️';
+    } else {
+      music.pause();
+      button.textContent = 'Iniciar música 🎵';
+    }
+  }
+</script>
 
 </body>
 </html>
